@@ -1,15 +1,10 @@
 <x-default>
     {{-- Header --}}
-
     <x-layout.header>
     </x-layout.header>
 
-    {{ $user }}
-
-    <x-layout.login>
-
-    </x-layout.login>
-
+    <x-layout.testform>
+    </x-layout.testform>
 
     {{-- Footer --}}
     <x-layout.footer>

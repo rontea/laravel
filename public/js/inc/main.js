@@ -3,11 +3,6 @@
 /* Demo0
  document.getElementById('demo').innerHTML = "Confirming working";
  */
-
-
-/** Demo click function */
-function buttonClick(){
-    console.log('Event click');
-}
+console.log('Action');
 
 

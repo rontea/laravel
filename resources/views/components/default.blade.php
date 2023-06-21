@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="en">
     <head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Offline -->
     <!-- Main CSS-->
     <link rel="stylesheet" href="css/styles.css" >
@@ -28,7 +29,7 @@
         <!-- Offline Make user laest popper and bootsrap is installed use npm install bootstrap@latest -->
         <script src="js/inc/popper.min.js"></script>
         <script src="js/inc/bootstrap.min.js"></script>
-        <script src="js/main.js"> </script>
+        <script src="js/inc/main.js"> </script>
 
     </body>
  </html>

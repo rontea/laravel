@@ -20,15 +20,42 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
    return view('home');
-});
+})->name('index');
+
+/**
+ * Home Page
+ */
+
+ Route::get('/', [FormRegistrationController::class,
+ 'getListName'
+])->name('show');
+
+
+// test JSON reponse
+Route::post('/liveusernamechecking',
+    [FormRegistrationController::class,
+    'checkUsernameAvailability'
+])->name('checkUsername.submit');
+// test JSON reponse
+Route::get('/liveusernamechecking',
+    [FormRegistrationController::class,
+    'showFormUser'
+])->name('checkUsername');
+
 
 /**
  *  Registration Page
  */
 
- Route::get('/registration', [FormRegistrationController::class, 'showForm'])->name('registration');
+Route::get('/registration',
+    [FormRegistrationController::class,
+    'showForm'
+])->name('registration');
 
- Route::post('/registration', [FormRegistrationController::class, 'register'])->name('registration.submit');
+Route::post('/registration',
+    [FormRegistrationController::class,
+    'register'
+])->name('registration.submit');
 
 
 
