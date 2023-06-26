@@ -102,7 +102,7 @@ class FormRegistrationController extends Controller
         // query username
         $user = User::where('username', $username)->first();
 
-        // Prepare the response data
+        // Prepare the response data set value if null false and if not true
         $response = [
             'available' => $user ? false : true
         ];

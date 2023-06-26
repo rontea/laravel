@@ -1,3 +1,5 @@
+
+
 <form class="g-3 needs-validation" id="testForm">
     <div class="p-2 row">
         <div class="col-sm-10">
@@ -7,9 +9,9 @@
                         placeholder="username"
                         aria-describedby="inputGroupPrepend"
                     required>
-                <span class="input-group-text"><i class="bi bi-arrow-repeat" id="eventChecking"></i></span>
-                <span class="input-group-text"><i class="bi bi-exclamation-square" id="respondExist"></i></span>
-                <span class="input-group-text"><i class="bi bi-check-square" id="respondValid"></i></span>
+                <div class="input-group-text" id="eventChecking"><i class="bi bi-arrow-repeat" ></i></div>
+                <div class="input-group-text" id="respondExist"><i class="bi bi-exclamation-square" ></i></div>
+                <div class="input-group-text" id="respondValid"><i class="bi bi-check-square" ></i></div>
             </div>
         </div>
     </div>

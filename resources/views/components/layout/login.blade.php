@@ -35,11 +35,15 @@
         </div>
     </form>
     <div class="row p-2">
-        <div class="col-6">
+        <div class="col-3">
             <a href="/registration"> Register </a>
         </div>
-        <div class="col-6">
+        <div class="col-3">
             <a href="#"> Forgot Password </a>
+        </div>
+
+        <div class="col-3">
+            <a href="/liveusernamechecking"> Test JSON </a>
         </div>
     </div>
 
