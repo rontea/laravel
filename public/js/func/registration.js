@@ -68,7 +68,7 @@
        * Helper function to check the validity of the password
        * @param {*} password
        * @param {*} confirm_password
-       * @returns bolean
+       * @returns boolean
        * Return true or false indicating validity
        */
 

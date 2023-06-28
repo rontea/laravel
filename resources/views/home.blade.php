@@ -6,6 +6,14 @@
 
     {{ $user }}
 
+
+    {{-- session on --}}
+
+    <x-layout.login.logout>
+
+    </x-layout.login.logout>
+
+
     <x-layout.login>
 
     </x-layout.login>

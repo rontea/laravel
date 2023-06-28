@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthLoginController;
 use App\Http\Controllers\FormRegistrationController;
 use Illuminate\Support\Facades\Route;
 
@@ -57,7 +58,22 @@ Route::post('/registration',
     'register'
 ])->name('registration.submit');
 
+/**
+ * Login Successful
+*/
 
+// login after registration
+Route::get('/loginhome', function() {
+    return view('loginhome');
+})->name('loginhome');
 
+// login
 
+Route::post('/', [AuthLoginController::class,
+    'login'
+])->name('login.submit');
 
+// logout
+Route::post('logout' ,[AuthLoginController::class,
+    'logout'
+])->name('logout.submit');

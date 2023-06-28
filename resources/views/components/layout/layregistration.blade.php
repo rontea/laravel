@@ -1,4 +1,7 @@
 
+
+@guest
+
 @if ($errors->any())
     @foreach ($errors->all() as $error)
     <div class="alert alert-warning" role="alert">
@@ -7,22 +10,25 @@
     @endforeach
 @endif
 
-<form class="row g-3 m-2" id="validateForm" action="{{ route('registration.submit') }}" method="POST">
+<form class="row g-3 m-2" id="validateForm"
+    action="{{ route('registration.submit') }}" method="POST">
     @csrf
     <div class="col-md-4">
       <label for="first_name" class="form-label">First name</label>
-      <input name="first_name" type="text" class="form-control" id="first_name" required>
+      <input name="first_name" value="{{ old('first_name') }}" type="text"
+        class="form-control" id="first_name" required>
 
     </div>
     <div class="col-md-4">
         <label for="middle_name" class="form-label">Middle name</label>
-        <input name="middle_name" type="text" class="form-control" id="middle_name">
-
-      </div>
+        <input name="middle_name" value="{{ old('middle_name') }}" type="text"
+            class="form-control" id="middle_name">
+    </div>
 
     <div class="col-md-4">
       <label for="last_name" class="form-label">Last name</label>
-      <input name="last_name" type="text" class="form-control" id="last_name"  required>
+      <input name="last_name" value="{{ old('last_name') }}" type="text"
+        class="form-control" id="last_name"  required>
 
     </div>
 
@@ -46,7 +52,8 @@
 
     <div class="col-md-4">
         <label for="email_address" class="form-label">Email</label>
-          <input name="email" type="email" class="form-control" id="email_address"  placeholder="john@sample.com" required>
+          <input name="email" type="email" class="form-control"
+             id="email_address"  placeholder="john@sample.com" required>
 
     </div>
 
@@ -70,10 +77,11 @@
 
     <div class="col-md-6">
         <label for="confirm_password" class="form-label">Confirm Password</label>
-          <input name="confirmPassword" type="password" class="form-control" id="confirm_password"
-          data-bs-toggle="tooltip"
-          data-bs-original-title="This should Match the Password"
-        required>
+          <input name="confirmPassword" type="password" class="form-control"
+            id="confirm_password"
+            data-bs-toggle="tooltip"
+            data-bs-original-title="This should Match the Password"
+            required>
 
           <div id="confirm_passwordValidFeedback" class="valid-feedback">
           </div>
@@ -86,8 +94,12 @@
     </div>
 
   </form>
+
   <div class="col-12 mt-2">
     <a href="#"> Next </a>
   </div>
 
+
   <script src="/js/func/registration.js"></script>
+
+@endguest

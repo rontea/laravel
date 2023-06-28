@@ -12,6 +12,13 @@
                 <div class="input-group-text" id="eventChecking"><i class="bi bi-arrow-repeat" ></i></div>
                 <div class="input-group-text" id="respondExist"><i class="bi bi-exclamation-square" ></i></div>
                 <div class="input-group-text" id="respondValid"><i class="bi bi-check-square" ></i></div>
+
+                <div id="usernameValidFeedback" class="valid-feedback">
+
+                </div>
+                <div id="usernameFeedback" class="invalid-feedback">
+
+                </div>
             </div>
         </div>
     </div>
