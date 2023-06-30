@@ -1,3 +1,10 @@
+ {{--
+  @author: RonTea
+  Website: https://live-rontea.pantheonsite.io/
+  Version: 0
+  Date: June, 30, 2023
+  File: resources\views\components\layout\login\logout.blade.php
+ --}}
 @auth
 <form action="/logout" method="POST" class="g-3" id="logout">
     @csrf

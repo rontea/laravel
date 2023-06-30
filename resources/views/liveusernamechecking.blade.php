@@ -1,3 +1,11 @@
+ {{--
+  @author: RonTea
+  Website: https://live-rontea.pantheonsite.io/
+  Version: 0
+  Date: June, 30, 2023
+  File: resources\views\liveusernamechecking.blade.php
+ --}}
+
 <x-default>
     {{-- Header --}}
     <x-layout.header>

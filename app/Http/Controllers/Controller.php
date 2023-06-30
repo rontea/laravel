@@ -1,4 +1,11 @@
 <?php
+/**
+ * @author: RonTea
+ * Website: https://live-rontea.pantheonsite.io/
+ * Version: 0
+ * Date: June, 30, 2023
+ * File: app\Http\Controllers\Controller.php
+ */
 
 namespace App\Http\Controllers;
 
