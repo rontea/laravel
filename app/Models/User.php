@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -25,6 +25,10 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
+    // fillable or
+
+    // protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -45,4 +49,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    //mutator should follow naming convention of class set{name}Attribute or it will not work
+
+    public function setPasswordAttribute($password){
+
+        $this->attributes['password'] = bcrypt($password);
+
+    }
+    // more here https://laravel.com/docs/10.x/eloquent-mutators#accessors-and-mutators
 }

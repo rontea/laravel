@@ -71,6 +71,8 @@ class FormRegistrationController extends Controller
          *  the database variable on your array
          */
 
+        // checking for unique can be written as 'unique:users,username'
+
         // validate inputs
         $registrationFields = $request->validate([
             'first_name' => ['required','max:255'],
@@ -103,8 +105,8 @@ class FormRegistrationController extends Controller
             // withInput() make sure that the input data previously entered are available
             return redirect()->back()->withErrors($registrationFields)->withInput();
         }else {
-            // use bcrypt for the password encryption
-            $registrationFields['password'] = bcrypt($registrationFields['password']);
+            // use bcrypt for the password encryption but here using mutator see user model
+            // $registrationFields['password'] = bcrypt($registrationFields['password']);
             // remove confirm password on array
             unset($registrationFields['confirmPassword']);
 
@@ -113,9 +115,14 @@ class FormRegistrationController extends Controller
 
             // create the session login
             auth()->login($this->data);
+            //return request to see all
+            //return request()->all();
+
+            // flash
+            session()->flash('success', 'Your account has been created.');
 
             // go to the dashboard
-            return redirect()->route('loginhome');
+            return redirect()->route('dashboard');
         }
 
     }

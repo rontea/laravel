@@ -12,7 +12,7 @@
     <x-layout.header>
     </x-layout.header>
 
-    {{ $user }}
+
 
 
     {{-- session on --}}

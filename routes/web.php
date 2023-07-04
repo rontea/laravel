@@ -48,32 +48,33 @@ Route::get('/liveusernamechecking',
  *  Registration Page
  */
 
+ // using middleware change redirect of guest in Provider > RouteServiceProvider > HOME
 Route::get('/registration',
     [FormRegistrationController::class,
     'showForm'
-])->name('registration');
+])->middleware('guest')->name('registration');
 
 Route::post('/registration',
     [FormRegistrationController::class,
     'register'
-])->name('registration.submit');
+])->middleware('guest')->name('registration.submit');
 
 /**
  * Login Successful
 */
 
 // login after registration
-Route::get('/loginhome', function() {
-    return view('loginhome');
-})->name('loginhome');
+Route::get('/dashboard', function() {
+    return view('dashboard');
+})->name('dashboard');
 
 // login
 
 Route::post('/', [AuthLoginController::class,
     'login'
-])->name('login.submit');
+])->middleware('guest')->name('login.submit');
 
 // logout
 Route::post('logout' ,[AuthLoginController::class,
     'logout'
-])->name('logout.submit');
+])->middleware('auth')->name('logout.submit');

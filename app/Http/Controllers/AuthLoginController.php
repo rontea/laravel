@@ -32,7 +32,7 @@ class AuthLoginController extends Controller
 
         // check validation parameters should be required
         $incomingFields = $request->validate([
-            'username' => 'required',
+            'username' => 'required|exists:users,username',
             'password' => 'required'
         ]);
         // use auth method to authenticate
@@ -43,9 +43,9 @@ class AuthLoginController extends Controller
 
             $request->session()->regenerate();
             // Perform a link route redirect
-            return redirect('/loginhome');
+            return redirect('/dashboard');
         }else {
-            // Perform redirect with flash data of error
+            // Perform redirect with 'flash' data of error
             return redirect()->back()->with('error', 'Login failed. Please check your credentials.');
         }
 

@@ -16,6 +16,14 @@
     @endforeach
 @endif
 
+{{-- Setting individual errors --}}
+
+@error('username')
+    <div class="alert alert-warning" role="alert">
+        {{ $message }}
+    </div>
+@enderror
+
 <form class="row g-3 m-2" id="validateForm"
     action="{{ route('registration.submit') }}" method="POST">
     @csrf
@@ -41,7 +49,7 @@
     <div class="col-md-4">
       <label for="username" class="form-label">Username</label>
       <div class="input-group has-validation">
-        <input  name="username" type="text" class="form-control" id="username"
+        <input  name="username" value="{{ old('username')}}" type="text" class="form-control" id="username"
           data-bs-toggle="tooltip"
           data-bs-original-title="Username should be atleast 5 Character long no whitespace"
         required>
@@ -104,6 +112,9 @@
   <div class="col-12 mt-2">
     <a href="#"> Next </a>
   </div>
+
+
+
 
 
   <script src="/js/func/registration.js"></script>
