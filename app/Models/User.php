@@ -7,28 +7,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Fortify\TwoFactorAuthenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'first_name',
-        'last_name',
-        'middle_name',
-        'username',
-        'email',
-        'password',
-    ];
+    //protected $fillable = [];
 
     // fillable or
 
-    // protected $guarded = [];
+     protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -50,12 +44,12 @@ class User extends Authenticatable implements MustVerifyEmail
         'password' => 'hashed',
     ];
 
-    //mutator should follow naming convention of class set{name}Attribute or it will not work
+    /*mutator should follow naming convention of class set{name}Attribute or it will not work
 
     public function setPasswordAttribute($password){
 
         $this->attributes['password'] = bcrypt($password);
 
-    }
+    }*/
     // more here https://laravel.com/docs/10.x/eloquent-mutators#accessors-and-mutators
 }

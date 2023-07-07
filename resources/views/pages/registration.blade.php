@@ -6,7 +6,7 @@
   File: resources\views\registration.blade.php
  --}}
 
-<x-default>
+<x-layouts.default>
     {{-- Header --}}
     <x-layout.header>
     </x-layout.header>
@@ -19,4 +19,4 @@
     {{-- Footer --}}
     <x-layout.footer>
     </x-layout.footer>
-</x-default>
+</x-layouts.default>

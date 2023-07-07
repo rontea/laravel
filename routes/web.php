@@ -19,17 +19,10 @@ use Illuminate\Support\Facades\Route;
  * Home Page
  */
 
-Route::get('/', function () {
-   return view('home');
-})->name('index');
+ Route::get('/', function () {
+    return view('pages.index');
+ })->middleware('auth', 'verified')->name('index');
 
-/**
- * Home Page
- */
-
- Route::get('/', [FormRegistrationController::class,
- 'getListName'
-])->name('show');
 
 
 // test JSON reponse
@@ -37,6 +30,7 @@ Route::post('/liveusernamechecking',
     [FormRegistrationController::class,
     'checkUsernameAvailability'
 ])->name('checkUsername.submit');
+
 // test JSON reponse
 Route::get('/liveusernamechecking',
     [FormRegistrationController::class,
@@ -44,37 +38,4 @@ Route::get('/liveusernamechecking',
 ])->name('checkUsername');
 
 
-/**
- *  Registration Page
- */
 
- // using middleware change redirect of guest in Provider > RouteServiceProvider > HOME
-Route::get('/registration',
-    [FormRegistrationController::class,
-    'showForm'
-])->middleware('guest')->name('registration');
-
-Route::post('/registration',
-    [FormRegistrationController::class,
-    'register'
-])->middleware('guest')->name('registration.submit');
-
-/**
- * Login Successful
-*/
-
-// login after registration
-Route::get('/dashboard', function() {
-    return view('dashboard');
-})->name('dashboard');
-
-// login
-
-Route::post('/', [AuthLoginController::class,
-    'login'
-])->middleware('guest')->name('login.submit');
-
-// logout
-Route::post('logout' ,[AuthLoginController::class,
-    'logout'
-])->middleware('auth')->name('logout.submit');

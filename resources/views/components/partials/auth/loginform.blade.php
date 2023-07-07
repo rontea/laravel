@@ -3,10 +3,9 @@
   @author: RonTea
   Website: https://live-rontea.pantheonsite.io/
   Version: 0
-  Date: June, 30, 2023
-  File: resources\views\components\layout\login.blade.php
+  Date: July, 06, 2023
+  File: resources\views\components\partials\auth\loginform.blade.php
  --}}
-
     {{-- Login Form --}}
 
     @if ($errors->any())
@@ -22,9 +21,10 @@
             {{ session('error') }}
         </div>
     @endif
+
     @guest
     <div class="container m-4">
-        <form action="{{ route('login.submit') }}" method="POST" class="g-3 needs-validation" id="loginForm">
+        <form action="{{ route('login') }}" method="POST" class="g-3 needs-validation" id="loginForm">
             @csrf
             <div class="p-2 row">
                 <div class="col-sm-10">
@@ -63,10 +63,10 @@
     {{-- Quick links --}}
         <div class="row p-2">
             <div class="col-3">
-                <a href="/registration"> Register </a>
+                <a href="/register"> Register </a>
             </div>
             <div class="col-3">
-                <a href="#"> Forgot Password </a>
+                <a href="/forgot-password"> Forgot Password </a>
             </div>
 
             <div class="col-3">

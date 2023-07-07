@@ -2,10 +2,11 @@
   @author: RonTea
   Website: https://live-rontea.pantheonsite.io/
   Version: 0
-  Date: June, 30, 2023
-  File: resources\views\components\layout\header.blade.php
+  Date: July, 07, 2023
+  File: resources\views\components\partials\header\header.blade.php
  --}}
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+ <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
 
       <a class="navbar-brand logo" href="./">RonTea</a>

@@ -6,7 +6,7 @@
   File: resources\views\components\layout\login\logout.blade.php
  --}}
 @auth
-<form action="/logout" method="POST" class="g-3" id="logout">
+<form action="{{ route('logout') }}" method="POST" class="g-3" id="logout">
     @csrf
     <div class="d-flex flex-row-reverse">
         <div class="me-2">
