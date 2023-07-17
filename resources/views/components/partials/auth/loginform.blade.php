@@ -26,6 +26,8 @@
     <div class="container m-4">
         <form action="{{ route('login') }}" method="POST" class="g-3 needs-validation" id="loginForm">
             @csrf
+            <div class="g-recaptcha" data-sitekey="{{ config('app.api_site_key') }}"></div>
+
             <div class="p-2 row">
                 <div class="col-sm-10">
                     <div class="input-group mb-3">
@@ -37,6 +39,9 @@
                     </div>
                 </div>
             </div>
+
+            {{-- Recapcha --}}
+
 
             <div class="p-2 row">
 
@@ -75,6 +80,8 @@
         </div>
 
     </div>
+
+
 
 <script src="/js/func/login.js"></script>
 

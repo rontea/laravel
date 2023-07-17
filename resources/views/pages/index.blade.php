@@ -13,12 +13,18 @@
 
 
     {{-- session on --}}
+    <x-partials.dashboard />
 
     <x-partials.login.logout />
 
-    <x-partials.auth.two-factorauth />
+    <x-partials.auth.two-factorauth>
 
 
+    </x-partials.auth.two-factorauth>
+
+
+
+    {{-- Login form will not show --}}
     <x-partials.auth.loginform />
 
 

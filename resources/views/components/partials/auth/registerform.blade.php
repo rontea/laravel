@@ -51,6 +51,11 @@
                  <input name="username" value="{{ old('username') }}" type="text" class="form-control" id="username"
                      data-bs-toggle="tooltip"
                      data-bs-original-title="Username should be atleast 5 Character long no whitespace" required>
+
+                <div class="input-group-text" id="eventChecking"><i class="bi bi-arrow-repeat" ></i></div>
+                <div class="input-group-text" id="respondExist"><i class="bi bi-exclamation-square" ></i></div>
+                <div class="input-group-text" id="respondValid"><i class="bi bi-check-square" ></i></div>
+
                  @error('usernamame')
                      <div class="invalid-feedback">
                          {{ $message }}
@@ -91,13 +96,13 @@
          </div>
 
          <div class="col-md-6">
-             <label for="confirm_password" class="form-label">Confirm Password</label>
-             <input name="password_confirmation" type="password" class="form-control" id="confirm_password"
+             <label for="password_confirmation" class="form-label">Confirm Password</label>
+             <input name="password_confirmation" type="password" class="form-control" id="password_confirmation"
                  data-bs-toggle="tooltip" data-bs-original-title="This should Match the Password" required>
 
-             <div id="confirm_passwordValidFeedback" class="valid-feedback">
+             <div id="password_confirmationValidFeedback" class="valid-feedback">
              </div>
-             <div id="confirm_passwordFeedback" class="invalid-feedback">
+             <div id="password_confirmationFeedback" class="invalid-feedback">
              </div>
          </div>
 
@@ -111,6 +116,6 @@
          <a href="#"> Next </a>
      </div>
 
-  <script src="/js/func/registration.js"></script>
+  <script src="/js/func/register.js"></script>
 
  @endguest

@@ -41,6 +41,12 @@
                         </div>
 
                     </form>
+                    @if (!session('status') == 'two-factor-authentication-confirmed')
+
+                        <x-partials.auth.two-factor-confirmationform />
+                    @else
+                    2FA is verified :{{auth()->user()->two_factor_confirmed_at}}
+                    @endif
 
                 @endif
 

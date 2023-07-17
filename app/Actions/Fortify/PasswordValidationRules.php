@@ -15,6 +15,7 @@ trait PasswordValidationRules
     {
         return ['required', 'string', new Password, 'confirmed',
         'min:8',
+        'max:60',
         'regex:/[!@#$%^&*()_+\-=[\]{};\'\\:"|,.<>\/?]/',
         'regex:/\S+/',
         'regex:/[A-Z]/',

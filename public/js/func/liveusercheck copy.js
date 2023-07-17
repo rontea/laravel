@@ -8,6 +8,175 @@
 
 'use strict'
 
+
+class PasswordForm {
+    constructor(formId,passwordId,passwordConfirmationId) {
+
+        this.validation;
+        this.min;
+        this.max;
+
+        this.specialCharPattern;
+        this.whitespace;
+        this.uppercase;
+        this.lowercase;
+        this.number;
+
+        this.form;
+        this.password;
+        this.passwordConfirmation;
+
+        this.passwordId = passwordId;
+        this.passwordConfirmationId = passwordConfirmationId;
+        this.formId = formId;
+
+        this.validationSuccessFeedback;
+        this.validationErrorFeedback;
+
+        this.valid;
+
+        this.message;
+
+    }
+
+    init(){
+
+        this.valid = false;
+
+        this.form = document.getElementById(this.formId);
+        this.password = document.getElementById(this.passwordId);
+        this.passwordConfirmation = document.getElementById(this.passwordConfirmationId);
+
+
+        this.min = 8;
+        this.max = 255;
+
+        this.specialCharPattern = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
+        this.whitespace = /\s/;
+        this.uppercase = /[A-Z]/;
+        this.lowercase = /[a-z]/;
+        this.number = /[0-9]/;
+
+        this.validation = {
+            'min' : this.min,
+            'max' : this.max,
+            'required' : {
+                'specialCharacter' : true,
+                'whitespace' : true,
+                'uppercase': true,
+                'lowercase': true,
+                'number': true,
+
+            },
+            'feedback' : {
+                'min': 'Password should be at least ' + this.min + ' characters',
+                'max': 'Maximum allowed Characted limit has been reached ' + this.max,
+                'specialCharacter' : 'Must Contain one special character',
+                'whitespace' : 'Whitespace is not allowed',
+                'uppercase': 'Must Contain one uppercase',
+                'lowercase': 'Must Contain one lowercase',
+                'number': 'Must Contain one number',
+            }
+        }
+        this._privateEnforceMax();
+        this.password.addEventListener('input', this._privateValidatePassword.bind(this));
+        this.passwordConfirmation.addEventListener('input', this._privateValidateConfirmPassword.bind(this));
+    }
+    _privateValidateConfirmPassword(){
+
+        const password = this.password.value;
+        const passwordConfirmation = this.passwordConfirmation.value;
+
+        if(password === passwordConfirmation){
+            this.valid = true;
+        }else{
+            this.valid = false;
+        }
+
+    }
+
+    _privateValidatePassword (){
+
+        const password = this.password.value;
+        const passwordConfirmation = this.passwordConfirmation.value;
+        const confirmPasswordState = true;
+
+        if(passwordConfirmation != "" && confirmPasswordState ){
+
+            this.valid = false;
+            this._privateValidateConfirmPassword();
+        }
+
+
+        switch (true) {
+            case (password.length < this.validation.min || password.length > this.validation.max):
+              this.valid = false;
+              break;
+            case this.validation.required.specialCharPattern && !this.specialCharPattern(password):
+              this.valid = false;
+              break;
+            case this.validation.required.whitespace && !this.whitespace.test(password):
+              this.valid = false;
+              break;
+            case this.validation.required.uppercase && !this.uppercase.test(password):
+              this.valid = false;
+              break;
+            case this.validation.required.lowercase && !this.lowercase.test(password):
+              this.valid = false;
+              break;
+            case this.validation.required.number && !this.number.test(password):
+              this.valid = false;
+              break;
+            default:
+              this.valid = true;
+          }
+
+    }
+
+    _privateEnforceMax(){
+        this.password.maxLength = this.max;
+    }
+
+    setRule(validation = {}){
+        this.validation = validation;
+        this.validation = {...this.validation, ...validation};
+    }
+
+    setValidationFeedbackId(validationSuccessFeedbackId,validationErrorFeedbackId) {
+        this.validationErrorFeedback = document.getElementById(validationErrorFeedbackId);
+        this.validationSuccessFeedback = document.getElementById(validationSuccessFeedbackId);
+    }
+
+    setPasswordLegth(min,max){
+        this.min = min;
+        this.max = max;
+    }
+
+    setPasswordMin(min) {
+        this.min = min;
+    }
+
+    setPasswordMax(max){
+        this.max = max;
+    }
+
+    // methods
+    getErrorMessage(messasge){
+
+    }
+
+    setSuccessMessage(message){
+
+    }
+
+    isPasswordValid(){
+        return this.valid;
+    }
+
+}
+
+
+
 /**
  *
  * username checking live

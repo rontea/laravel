@@ -13,15 +13,4 @@
 
     </x-layout.header>
 
-
-    @auth
-
-    @else
-
-
-    @endauth
-
-
-
-
 </x-layouts.default>

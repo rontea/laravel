@@ -86,5 +86,7 @@ class FortifyServiceProvider extends ServiceProvider
             return view('pages.auth.two-factor-challenge');
         });
 
+
+
     }
 }

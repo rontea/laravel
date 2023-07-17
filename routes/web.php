@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthLoginController;
 use App\Http\Controllers\FormRegistrationController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Fortify;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 
  Route::get('/', function () {
     return view('pages.index');
- })->middleware('auth', 'verified')->name('index');
+ })->middleware(['auth', 'verified'])->name('index');
 
 
 

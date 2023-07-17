@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
+use BiSLob\Recaptcha\Facades\Recaptcha;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -20,6 +21,7 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input): User
     {
         Validator::make($input, [
+            'g-recaptcha-response' => ['required', Recaptcha::class],
             'first_name' => ['required','max:255'],
             'last_name' => ['required', 'max:255'],
             'username' => [

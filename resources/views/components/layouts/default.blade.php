@@ -24,7 +24,7 @@
 
     <!-- Bootstrap Icon CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcjFRUnAAAAAFhszuR6gpe5gRbvoAt8FFOMrotn"></script>
 
     <title> {{ config('app.name') }}</title>
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
